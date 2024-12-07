@@ -8,5 +8,4 @@ class PerfilViagem:
         self.numero_pessoas = numero_pessoas
         self.orcamento_por_pessoa = orcamento_por_pessoa
         self.tipo_destino = tipo_destino  # Enum: TipoDestino
-        self.nivel_viagem = nivel_viagem  # Enum: NivelViagem
 

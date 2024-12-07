@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Recomendações de Destinos - GMPobre</title>    
-    <link rel="icon" href="../static/assets/logo.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+    <link rel="icon" href="{{ url_for('static', filename='assets/logo.png') }}" type="image/png">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <ul>
             <li><a href="/inicio">Início</a></li>
             <li><a href="/historico">Histórico</a></li>
-            <li><a href="/logout">Sair</a></li>
+            <li><a href="/">Sair</a></li>
         </ul>
     </nav>
     <div class="recommendations-container">
@@ -20,48 +20,20 @@
         <h3>Considerando uma viagem de 5 dias</h3>
         
         <div class="destinos-container">
-                <div class="destino-card">
-                    <div class="destino-info">
-                        <h3>Paris</h3>
-                        <p>Cidade luz, famosa por sua cultura e história.</p>
-                    </div>
-                    <div class="destino-image">
-                        <img src="../static/assets/paris.jpg" alt="Imagem de Paris" />
-                    </div>
-                </div>
-    
-                <div class="destino-card">
-                    <div class="destino-info">
-                        <h3>Tokyo</h3>
-                        <p>A vibrante capital do Japão, conhecida por sua modernidade e cultura tradicional.</p>
-                    </div>
-                    <div class="destino-image">
-                        <img src="../static/assets/tokyo.jpeg" alt="Imagem de Tokyo" />
-                    </div>
-                </div>
-    
-                <div class="destino-card">
-                    <div class="destino-info">
-                        <h3>Barcelona</h3>
-                        <p>Uma cidade charmosa, com arquitetura impressionante e uma vibrante cena cultural.</p>
-                    </div>
-                    <div class="destino-image">
-                        <img src="../static/assets/barcelona.jpeg" alt="Imagem de Barcelona" />
-                    </div>
-                </div>
-                <!-- {% for destino in destinos %}
+            {% for destino in destinos %}
                 <div class="destino-card">
                     <div class="destino-info">
                         <h3>{{ destino.nome }}</h3>
                         <p>{{ destino.descricao }}</p>
                     </div>
                     <div class="destino-image">
-                        <img src="{{ destino.imagem_url }}" alt="Imagem do destino" />
+                        <img src="{{ url_for('static', filename=destino.imagem_url) }}" alt="Imagem de {{ destino.nome }}" />
                     </div>
                 </div>
-               {% endfor %} -->
+            {% endfor %}
         </div>
     </div>
 
 </body>
 </html>
+

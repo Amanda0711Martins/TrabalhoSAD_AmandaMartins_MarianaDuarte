@@ -32,6 +32,7 @@ class Database:
 
     def execute_query(self, query, params=None):
         try:
+            self.connect()
             with self.connection.cursor() as cursor:
                 cursor.execute(query, params)
                 self.connection.commit()
@@ -40,3 +41,23 @@ class Database:
             print(f"Erro na execução da query: {e}")
             self.connection.rollback()
             return None
+        
+    def setup_database(self):
+        dir_atual = os.path.dirname(os.path.abspath(__file__))
+        caminho_script = os.path.join(dir_atual, 'script.sql')
+
+        try:
+            with open(caminho_script, 'r') as sql_file:
+                sql = sql_file.read()
+
+            sql_comandos = sql.split(';')
+
+            for comando in sql_comandos:
+                comando = comando.strip()
+                if comando:  
+                    self.execute_query(comando)
+            print("Banco de dados configurado com sucesso!")
+        except Exception as e:
+            print(f"Erro ao configurar o banco de dados: {e}")
+        finally:
+            self.close()

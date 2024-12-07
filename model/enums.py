@@ -4,11 +4,6 @@ class TipoDestino(Enum):
     QUENTE = "Quente"
     FRIO = "Frio"
 
-class NivelViagem(Enum):
-    SIMPLES = "Simples"
-    LUXO = "Luxo"
-    SUPER_LUXO = "Super Luxo"
-
 class MesViagem(Enum):
     JANEIRO = "Janeiro"
     FEVEREIRO = "Fevereiro"

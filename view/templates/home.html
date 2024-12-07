@@ -12,7 +12,7 @@
         <ul>
             <li><a href="/inicio">Início</a></li>
             <li><a href="/historico">Histórico</a></li>
-            <li><a href="/logout">Sair</a></li>
+            <li><a href="/">Sair</a></li>
         </ul>
     </nav>
 
@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-container">
-        <form action="/gerar_recomendacoes" method="POST">
+        <form action={{ url_for('recomendacao.inicio') }} method="POST">
             <div class="input-box">
                 <label for="mes">Mês da Viagem</label>
                 <select name="mes" id="mes" required>
@@ -63,14 +63,6 @@
                     <option value="moderado">Moderado</option>
                     <option value="umido">Umido</option>
                     <option value="seco">Seco</option>
-                </select>
-            </div>
-            <div class="input-box">
-                <label for="nivel">Nível</label>
-                <select id="nivel" name="nivel" required>
-                    <option value="simples">Simples</option>
-                    <option value="luxo">Luxo</option>
-                    <option value="super_luxo">Super Luxo</option>
                 </select>
             </div>
             <button type="submit" class="btn">Gerar Recomendações</button>
